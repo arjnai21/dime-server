@@ -98,6 +98,7 @@ app.post("/createUser", async (req: Request, res: Response) => {
     })
 });
 
+// TODO VERY IMPORTANT Need to verify that this request comes from the actual username it says it does. Otherwise anyone can hit this endpoint to send money to themselves
 app.post("/sendMoney", async (req: Request, res: Response) => {
     await sendMoney(req.body);
     res.status(200).json({
@@ -107,7 +108,7 @@ app.post("/sendMoney", async (req: Request, res: Response) => {
 
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('Hello, this is Express + TypeScript');
+    res.send('Hello, this is Dime');
 });
 
 app.listen(port, () => {
